@@ -27,7 +27,7 @@ loginForm.addEventListener("submit", function(event) {
         // Display the welcome message with the user's name
         message.innerHTML = `Welcome, ${user.username}!`;
         message.style.color = "green";
-        window.location.href = 'index.html';
+        window.location.href = 'welcome.html';
 
         // Show the name of the logged-in user on every page
         document.querySelectorAll(".username").forEach(element => element.innerHTML = user.username);

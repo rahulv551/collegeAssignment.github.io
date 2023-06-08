@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Welcome to Spring Flowers School</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(#40027a, white, #40027a);
+}
+
+header {
+    background-color: #40027a;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 10px;
+    font-size: large;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    margin: 50px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+p {
+	font-size: 18px;
+	line-height: 1.5;
+  text-align: center;
+}
+
+footer {
+    background-color: #40027a;
+    color: #fff;
+    text-align: center;
+    padding: 10px; 
+}
+
+.notification {
+        background-color: #e2e2e2;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Styles for <main> element */
+main {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 20px;
+}
+
+/* Styles for <h1> element */
+h1 {
+  font-size: 36px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Styles for <p> element */
+p {
+  font-size: 18px;
+  text-align: center;
+  color: rgb(87, 86, 86);
+}
+
+/* Styles for notification section */
+.notification {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.notification h3 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.notification li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Styles for thumbnail section */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-xs-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 15px;
+}
+
+@media screen and (min-width: 576px) {
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+.thumbnail {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin: 15px;
+  overflow: hidden;
+}
+
+.thumbnail img {
+  display: block;
+  width: 100%;
+}
+
+.caption {
+  padding: 15px;
+  text-align: center;
+}
+
+.caption h4 {
+  margin-top: 0;
+}
+
+table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #4f0792;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+.caption p {
+  font-size: 16px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea,
+input[type="date"] {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.activity {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  width: 10em;
+  height: 3em;
+  text-align: center;
+  margin-left: 357px;
+}
+
+#clear-button {
+  padding: 10px 20px;
+  background-color: #4f0792;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 1.2em;
+}
+
+#clear-button:hover {
+  background-color: purple;
+}
+
+
+h2{
+    color: white;
+  }
+ h4{
+   color: white;
+ } 
+ 
+/*Style for footer */
+/* Footer container */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background-color: #44009c;
+}
+
+/* General section */
+.general h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.general ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.general li {
+  margin-bottom: 0.5rem;
+}
+
+.general a {
+  color: rgb(170, 169, 169);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.general a:hover {
+  color: #000;
+}
+
+/* School section */
+.school h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.school ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.school li {
+  margin-bottom: 0.5rem;
+}
+
+.school a {
+  color: rgb(170, 169, 169);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.school a:hover {
+  color: #000;
+}
+
+/* Social section */
+.social h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.social ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social li {
+  margin-bottom: 0.5rem;
+}
+
+.social a {
+  color: rgb(170, 169, 169);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.social a:hover {
+  color: #000;
+}
+
+/* Newsletter section */
+.newsletter h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.newsletter input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer rights section */
+.rights {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.7rem;
+  color: #666;
+  background-color: #f7f7f7;
+}
+
+.rights a {
+  color: #666;
+  text-decoration: none;
+}
+
+.rights a:hover {
+  color: #000;
+}
+
+
+    </style>
+
+  </head>
+  <body>
+  
+      <header>
+          <div class="logo">
+              <h2>Spring Flowers School</h1>
+          </div>
+          <nav>
+              <ul>
+                  <li><a href="Time-table/time-table.html">Time Table</a></li>
+                  <li><a href="Exam-Result/examresult.html">Exam Result</a></li>
+                  <li><a href="Extra-activity/extra-Activity.html">Extra Activity</a></li>
+                  <li><a href="Student profile/student-pro.html">Student Profile</a></li>
+                  <li><a href="/index.html">Log Out</a></li>
+
+              </ul>
+          </nav>
+      </header>
+
+      <main>
+        <h1>Welcome to Spring Flowers School</h1>
+        <h2 style="text-align: center;">Welcome <span class="username"></span></h2>
+        <h4>Here you can access your time table, exam results, extra activities and update your profile information.</h4>
+      
+        <div class="notification">
+          <h3>Notifications:</h3>
+          <ul>
+            <li>Topper student of the school is John Doe.</li>
+            <li>Exam forms for the upcoming session are available from March 15th to March 31st.</li>
+            <li>New admissions are open from April 1st to April 15th.</li>
+            <li>Parent-teacher meetings are scheduled for April 20th to April 22nd.</li>
+            <li>Final exams for the current session will be conducted from May 1st to May 10th.</li>
+          </ul>
+        </div>
+      <hr>
+      <section id="activity-list">
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Activity </th>
+              <th> Description</th>
+            </tr>
+          </thead>
+          <tbody id="activityTableBody">
+            <!-- Add table rows dynamically using JavaScript -->
+          </tbody>
+        </table>
+        <div class="button-container">
+          <button id="clear-button">Clear Activity</button>
+        </div>
+      </section>
+      <hr>
+
+      <h2 style="text-align: center;">External courses</h2>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpuMaFTOme6Ye_EoIdcm7N6mc33LY5-J3yUII_MrejJ5KLQ7lU68UK7UtTnJn-s0xiEC0&usqp=CAU" alt="Image 1">
+              <div class="caption">
+                <h4>Course 1</h4>
+                <p>Click to Resume</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTC0TagU1TC0s6fbn6c266qVme38v6P5eJYUc7PXmrXYhylnBbhyfDX8qqmaqOY4bMdfo&usqp=CAU" alt="Image 2">
+              <div class="caption">
+                <h4>Course 2</h4>
+                <p>Click to Resume</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDQ3BKtupl6sC-RX9nPPLr4e1bp6K16kArKD3MWAF9YkMaZqxI5pu_80TQvzX2BejcnWc&usqp=CAU" alt="Image 3">
+              <div class="caption">
+                <h4>Course 3</h4>
+                <p>Click to Resume</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+      
+
+      
+      <footer>
+
+          <!--Footer Starting-->
+    <footer>
+      <div class="footer-container">
+          <div class="general">
+              <h2>General</h2>
+              <ul>
+                  <li><a href="#">Terms</a></li>
+                  <li><a
+href="#">Conditions</a></li>
+                  <li><a href="#">Privacy
+Policy</a></li>
+              </ul>
+          </div>
+          <div class="school">
+              <h2>School</h2>
+              <ul>
+<li><a href="/index.html">Home</a></li>
+<li><a href="Time-table/time-table.html">Time Table</a></li>
+<li><a href="Exam-Result/examresult.html">Exam Results</a></li>
+<li><a href="Extra-activity/index.html">Extra Activity</a></li>
+<li><a href="Student profile/student-pro.html">Profile</a></li>
+</ul> </div>
+          <div class="social">
+              <h2>Social</h2>
+<ul>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Instagram</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">LinkedIn</a></li>
+              </ul>
+          </div>
+          <div class="newsletter">
+              <h2>Newsletter</h2>
+              <input type="text">
+          </div>
+</div>
+      <div class="rights"><a
+href="index.html"><img src="images/favicon.png"
+alt="">Spring Flowers School</a>&copy; 2023 All
+Rights Reserved</div>
+          
+      </footer>
+
+
+      <script>
+        // Get the username from localStorage
+        const username = localStorage.getItem("username");
+        
+
+        // Set the username in the element with class "username"
+        document.querySelectorAll(".username").forEach(element => element.innerHTML = username);
+
+        // JavaScript code to display stored activity data
+        const tableBody = document.querySelector('tbody');
+      
+        // Get the stored activities from local storage
+        const storedActivities = JSON.parse(localStorage.getItem('activities')) || [];
+      
+        // Add a table row for each stored activity
+        storedActivities.forEach(activity => {
+          const row = document.createElement('tr');
+          const activityCell = document.createElement('td');
+          const descriptionCell = document.createElement('td');
+          activityCell.textContent = activity.activity;
+          descriptionCell.textContent = activity.description;
+          row.appendChild(activityCell);
+          row.appendChild(descriptionCell);
+          tableBody.appendChild(row);
+        });
+      
+        // Add an event listener to the clear button to clear the table body and local storage
+        const clearButton = document.getElementById('clear-button');
+        clearButton.addEventListener('click', () => {
+          // Clear the table body
+          tableBody.innerHTML = '';
+          // Clear the local storage
+          localStorage.removeItem('activities');
+        });
+      </script>
+      
+        
+ 
+
+  </body>
+  </html>
+     
