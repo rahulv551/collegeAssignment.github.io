@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exam Result</title>
+	<style>
+/* CSS for Exam Result HTML */
+header {
+    background-color: #40027a;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    text-align: right;
+    margin-left: 820px;
+}
+
+nav li {
+    margin: 0 10px;
+    font-size: large;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(#8e73a5, white);
+}
+
+/* Styling for the headings */
+h1,
+h2 {
+    text-align: center;
+    color: #44009c;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+/* Styling for the select and label */
+label {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+#name {
+    font-weight: bold;
+}
+
+select {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: not-allowed;
+}
+
+/* Styling for the table */
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #44009c;
+    color: white;
+}
+
+td.math {
+    color: #030303;
+}
+
+/* Styling for the buttons */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #44009c;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6114c7;
+}
+
+button:active {
+    background-color: #7c34da;
+}
+
+/* Responsive CSS for Mobile */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        margin-left: 0;
+    }
+
+    nav li {
+        margin: 0 5px;
+        font-size: medium;
+    }
+
+    table {
+        width: 90%;
+    }
+
+    label {
+        margin-left: 0;
+    }
+}
+
+/* Responsive CSS for Tablet */
+@media only screen and (max-width: 992px) {
+    nav ul {
+        margin-left: 0;
+    }
+
+    nav li {
+        margin: 0 10px;
+        font-size: medium;
+    }
+
+    table {
+        width: 90%;
+    }
+
+    label {
+        margin-left: 0;
+    }
+}
+
+	</style>
+</head>
+<body>
+
+	<header>
+
+	<nav>
+		
+		<ul>
+			<li><a href="/index.html">Home</a></li>
+			<li><a href="/Time-table/time-table.html">Time Table</a></li>
+			<li><a href="/Extra-activity/index.html">Extra Activity</a></li>
+			<li><a href="/Student profile/student-pro.html">Student Profile</a></li>
+			<li><a href="/login.html">Log Out</a></li>
+
+		</ul>
+
+
+	</nav>
+</header>
+
+<h1>Exam Result</h1>
+<h2>Welcome, <span class="username"></span>!</h2>
+	
+<label for="name">Student name:</label>
+<select id="name" disabled>
+  <option value=""></option>
+</select>
+<table>
+  <tr>
+    <th>Subject</th>
+    <th>Marks</th>
+  </tr>
+  <tr>
+    <td>Math</td>
+    <td class="math"></td>
+  </tr>
+  <tr>
+    <td>Science</td>
+    <td class="science"></td>
+  </tr>
+  <tr>
+    <td>English</td>
+    <td class="english"></td>
+  </tr>
+  <tr>
+    <td>Geography</td>
+    <td class="geography"></td>
+  </tr>
+  <tr>
+    <td>History</td>
+    <td class="history"></td>
+  </tr>
+  <tr>
+    <td>Computer</td>
+    <td class="computer"></td>
+  </tr>
+  <tr>
+    <td>Total Marks</td>
+    <td id="total"></td>
+  </tr>
+  <tr>
+    <td>Percentage</td>
+    <td id="percentage"></td>
+  </tr>
+  <tr>
+    <td>Result</td>
+    <td id="result"></td>
+  </tr>
+</table>
+
+<button onclick="generateMarks()">Generate Marks</button>
+<button onclick="showResults()">Exam Results</button>
+
+
+
+
+<script>
+  // capture currently logged-in user's name
+  const username = localStorage.getItem('username');
+
+  // update welcome message
+  const usernameElem = document.querySelector('.username');
+  usernameElem.textContent = username;
+
+  // update dropdown menu to only display current user's name
+  const nameElem = document.querySelector('#name');
+  nameElem.innerHTML = `<option value="${username}">${username}</option>`;
+  nameElem.disabled = true;
+
+  // object to store marks for each student
+  const marks = {
+    Alice: {
+      math: 75,
+      science: 80,
+      english: 90,
+      geography: 70,
+      history: 85,
+      computer: 95,
+    },
+    Bob: {
+      math: 80,
+      science: 75,
+      english: 70,
+      geography: 85,
+      history: 90,
+      computer: 80,
+    },
+    Charlie: {
+      math: 85,
+      science: 90,
+      english: 75,
+      geography: 80,
+      history: 70,
+      computer: 85,
+    },
+    David: {
+      math: 90,
+      science: 85,
+      english: 80,
+      geography: 90,
+      history: 75,
+      computer: 70,
+    },
+    Emiley: {
+      math: 70,
+      science: 75,
+      english: 85,
+      geography: 90,
+      history: 80,
+      computer: 90,
+    },
+  };
+
+  // function to generate marks for current user
+  function generateMarks() {
+    const mathElem = document.querySelector('.math');
+    const scienceElem = document.querySelector('.science');
+    const englishElem = document.querySelector('.english');
+    const geographyElem = document.querySelector('.geography');
+    const historyElem = document.querySelector('.history');
+    const computerElem = document.querySelector('.computer');
+    const totalElem = document.querySelector('#total');
+
+    const studentMarks = marks[username];
+    const mathMarks = studentMarks.math;
+    const scienceMarks = studentMarks.science;
+    const englishMarks = studentMarks.english;
+    const geographyMarks = studentMarks.geography;
+    const historyMarks = studentMarks.history;
+    const computerMarks = studentMarks.computer;
+    const totalMarks = mathMarks + scienceMarks + englishMarks + geographyMarks + historyMarks + computerMarks;
+
+    mathElem.textContent = mathMarks;
+    scienceElem.textContent = scienceMarks;
+    englishElem.textContent = englishMarks;
+    geographyElem.textContent = geographyMarks;
+    historyElem.textContent = historyMarks;
+    computerElem.textContent = computerMarks;
+    totalElem.textContent = totalMarks;
+  }
+
+  // function to show current user's exam results
+  let resultsDisplayed = false;
+
+  function showResults() {
+    if (!resultsDisplayed) {
+      generateMarks();
+      const percentageElem = document.querySelector('#percentage');
+      const resultElem = document.querySelector('#result');
+      const totalMarks = parseInt(document.querySelector('#total').textContent);
+      const percentage = (totalMarks / 600) * 100;
+
+      percentageElem.textContent = percentage.toFixed(2) + '%';
+
+      if (percentage >= 60) {
+        resultElem.textContent = 'PASS';
+      } else {
+        resultElem.textContent = 'FAIL';
+      }
+
+      resultsDisplayed = true;
+    }
+  }
+</script>
+
+
+
+</body>
+</html>

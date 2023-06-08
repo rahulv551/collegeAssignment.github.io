@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Extra Activities</title>
+    <style>
+
+header {
+    background-color: #40027a;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    text-align: right;
+    margin-left: 820px;
+}
+
+nav li {
+    margin: 0 10px;
+    font-size: large;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+    /* Style the form elements */
+form {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(238, 130, 238, 0.425);
+}
+
+
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  color: rgb(76, 75, 77);
+}
+
+input[type="submit"] {
+  background-color: #8643f1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #631fa1;
+}
+
+/* Style the heading */
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 42px;
+  color: rgb(176, 130, 189);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+    font-size: 1.2rem;
+    color: #f2f2f2;
+}
+
+/* Add some basic styles to the body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  line-height: 1.5;
+  background-image: url(https://images.pexels.com/photos/3780104/pexels-photo-3780104.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+}
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+
+      <nav>
+        
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/Time-table/time-table.html">Time Table</a></li>
+          <li><a href="/Exam-Result/examresult.html">Exam Result</a></li>
+          <li><a href="/Student profile/student-pro.html">Student Profile</a></li>
+          <li><a href="/login.html">Log Out</a></li>
+    
+        </ul>
+    
+    
+      </nav>
+    </header>
+
+    <h1>My Extra Activities</h1>
+    <h2>Welcome, <span class="username"></span>!</h2>
+    <form>
+      <label for="activity">Activity:</label>
+      <input type="text" id="activity" name="activity" placeholder="Enter activity name">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="4" placeholder="Enter description"></textarea>
+      <input type="submit" value="Add Activity">
+      
+    </form>
+    
+    <script>
+
+      // capture currently logged-in user's name
+  const username = localStorage.getItem('username');
+      
+// Set the username in the element with class "username"
+document.querySelectorAll(".username").forEach(element => element.innerHTML = username);
+
+ // JavaScript code to add table rows dynamically
+const form = document.querySelector('form');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const activityInput = document.querySelector('#activity');
+  const descriptionInput = document.querySelector('#description');
+  const activity = activityInput.value.trim();
+  const description = descriptionInput.value.trim();
+
+  if (activity !== '' && description !== '') {
+    // Get the stored activities from local storage
+    const storedActivities = JSON.parse(localStorage.getItem('activities')) || [];
+
+    // Add the new activity to the stored activities
+    storedActivities.push({
+      activity,
+      description
+    });
+
+    // Store the updated activities in local storage
+    localStorage.setItem('activities', JSON.stringify(storedActivities));
+
+    // Redirect to the activity list page
+    window.location.href = '/index.html';
+  }
+});
+
+
+   
+    </script>
+  </body>
+</html>

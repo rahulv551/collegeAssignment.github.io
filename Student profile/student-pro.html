@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Profile | Spring Flowers School</title>
+	
+
+    <style>
+        body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background-color: #f5f5f5;
+}
+
+header {
+	background-color: #40027a;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+}
+
+h1 {
+	margin: 0;
+	font-size: 36px;
+}
+
+main {
+	margin: 20px;
+}
+
+.student-info,
+.academic-info {
+	background-color: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+footer {
+	background-color: hsl(270, 12%, 81%);
+    margin-top: 170px;
+	padding: 10px;
+	text-align: center;
+}
+
+    </style>
+</head>
+<body>
+	<header>
+		<h1>Student Profile</h1>
+	</header>
+	<main>
+		<section class="student-info">
+			<h2>Personal Information</h2>
+			<ul>
+				<li><strong>Name:</strong> <span id="name"></span></li>
+				<li><strong>Age:</strong> <span id="age"></span></li>
+				<li><strong>Grade:</strong> <span id="grade"></span></li>
+				<li><strong>Address:</strong> <span id="address"></span></li>
+				<li><strong>Phone:</strong> <span id="phone"></span></li>
+				<li><strong>Email:</strong> <span id="email"></span></li>
+			</ul>
+		</section>
+		<section class="academic-info">
+			<h2>Academic Information</h2>
+			<ul>
+				<li><strong>Overall GPA:</strong> <span id="gpa"></span></li>
+				<li><strong>Class Rank:</strong> <span id="class-rank"></span></li>
+				<li><strong>Course Schedule:</strong> Math, Science, English, History, Art</li>
+			</ul>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; Spring Flowers School 2023</p>
+	</footer>
+
+	<script>
+		window.onload = function() {
+			// Retrieve the user's input from the login page
+			var username = localStorage.getItem('username');
+			
+			// Define student data
+			var studentData = {
+				"Alice": {
+					name: "Alice",
+					age: 17,
+					grade: 10,
+					address: "123 Main St.",
+					phone: "555-555-5555",
+					email: "alice@student.springflowersschool.com",
+					gpa: 8.3,
+					classRank: "70/200"
+				},
+				"Bob": {
+					name: "Bob",
+					age: 16,
+					grade: 11,
+					address: "456 Elm St.",
+					phone: "555-555-1234",
+					email: "bob@student.springflowersschool.com",
+					gpa: 9.1,
+					classRank: "30/200"
+				},
+				"Charlie": {
+					name: "Charlie",
+					age: 16,
+					grade: 9,
+					address: "789 Oak St.",
+					phone: "555-555-4321",
+					email: "charlie@student.springflowersschool.com",
+					gpa: 7.6,
+					classRank: "150/200"
+				},
+				"David": {
+					name: "David",
+					age: 17,
+					grade: 12,
+					address: "1010 Maple St.",
+					phone: "555-555-6789",
+					email: "david@student.springflowersschool.com",
+					gpa: 9.5,
+					classRank: "10/200"
+				},
+				"Emiley": {
+					name: "Emiley",
+					age: 16,
+					grade: 11,
+					address: "1111 Pine St.",
+					phone: "555-555-9876",
+					email: "emiley@student.springflowersschool.com",
+					gpa: 8.7,
+					classRank: "50/200"
+				}
+			};
+
+			// Find the student with the matching username
+			var student = studentData[username];
+
+			// Update the relevant fields in the student profile
+			document.getElementById('name').innerHTML = student.name;
+			document.getElementById('age').innerHTML = student.age;
+			document.getElementById('grade').innerHTML = student.grade;
+			document.getElementById('address').innerHTML = student.address;
+			document.getElementById('phone').innerHTML = student.phone;
+			document.getElementById('email').innerHTML = student.email;
+			document.getElementById('gpa').innerHTML = student.gpa;
+			document.getElementById('class-rank').innerHTML = student.classRank;
+		}
+	</script>
+</body>
+
+</html>
