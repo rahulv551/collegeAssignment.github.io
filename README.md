@@ -1,7 +1,7 @@
 # collegeAssignment.github.io
 
 The “Front End Development Project” is a web application provided for students to see their schedule and important messages, their marks, timetable, their profile, grades and cope with their extra activities.
-This is the 4th part where first you can see the Login page where you can Login by giving the following names:
+First you can see the Login page where you can Login by giving the following names:
 Username - Alice Password - 1234 
 Username - Bob Password - 5678 
 Username - Charlie Password - abcd
